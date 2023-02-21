@@ -44,11 +44,8 @@ class Auto:
         registros.add(self.registro)
         registros.add(self.motor.registro)
         for asiento in self.asientos:
-            if isinstance(asiento, Asiento) and asiento.registro:
-                registros.add(asiento.registro)
-            else:
-                return "Las piezas no son originales"
-        if len(registros) > 1:
-            return "Las piezas no son originales"
-        else:
+            registros.add(asiento.registro)
+        if len(registros) == 1:
             return "Auto original"
+        else:
+            return "Las piezas no son originales"
