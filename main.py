@@ -1,25 +1,25 @@
 class Asiento:
-    def __init__(self, color: str, precio: int, registro: int):
+    def __init__(self, color, precio, registro):
         self.color = color
         self.precio = precio
         self.registro = registro
     
-    def cambiarColor(self, color: str) -> None:
+    def cambiarColor(self, color):
         colores_permitidos = ['rojo', 'verde', 'amarillo', 'negro', 'blanco']
         if color in colores_permitidos:
             self.color = color
 
 
 class Motor:
-    def __init__(self, numeroCilindros: int, tipo: str, registro: int):
+    def __init__(self, numeroCilindros, tipo, registro):
         self.numeroCilindros = numeroCilindros
         self.tipo = tipo
         self.registro = registro
     
-    def cambiarRegistro(self, registro: int) -> None:
+    def cambiarRegistro(self, registro):
         self.registro = registro
     
-    def asignarTipo(self, tipo: str) -> None:
+    def asignarTipo(self, tipo):
         if tipo == "electrico":
             self.tipo = tipo
 
@@ -27,7 +27,7 @@ class Motor:
 class Auto:
     cantidadCreados = 0
     
-    def __init__(self, modelo: str, precio: int, asientos: list, marca: str, motor: Motor, registro: int):
+    def __init__(self, modelo, precio, asientos, marca, motor: Motor, registro):
         self.modelo = modelo
         self.precio = precio
         self.asientos = asientos
@@ -36,10 +36,10 @@ class Auto:
         self.registro = registro
         Auto.cantidadCreados += 1
     
-    def cantidadAsientos(self) -> int:
+    def cantidadAsientos(self):
         return sum(isinstance(asiento, Asiento) for asiento in self.asientos)
     
-    def verificarIntegridad(self) -> str:
+    def verificarIntegridad(self):
         registros = set()
         registros.add(self.registro)
         registros.add(self.motor.registro)
